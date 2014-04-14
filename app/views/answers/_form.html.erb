@@ -1,0 +1,5 @@
+<%= form_for [@question, @answer] do |f| %>
+  <%=f.text_area :solution ,rows: "8", :placeholder => "The meat and potatoes..." %>
+  <%=f.hidden_field :user_id, value: current_user.id%>
+  <%= f.submit'submit', :class => 'button tiny' %>
+<% end %>

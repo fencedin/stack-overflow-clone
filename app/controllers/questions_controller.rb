@@ -12,15 +12,16 @@ class QuestionsController < ApplicationController
     @questions = Question.all
     @question = Question.new(question_params)
     if @question.save
+      @question.update(user_id: current_user.id)
       redirect_to question_path(@question)
     else
-      flash[:alert] = "Error"
       render "index"
     end
   end
 
   def show
     @question = Question.find(params[:id])
+    @answer = Answer.new
   end
 
 private

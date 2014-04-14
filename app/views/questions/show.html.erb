@@ -3,13 +3,20 @@
     <h1><%= @question.title %></h1>
     <p><%= @question.details %></p>
   </div>
-  <h3># Answers</h3>
-  <div class="panel">
-    posted answer
-  </div>
+  <h3><%= @question.answers.length %> Answers</h3>
+  <% @question.answers.each do |answer|%>
+    <% if answer.solution != ""%>
+      <div class="panel">
+        <p><%=answer.solution%></p>
+      </div>
+    <%else%>
+      <script>location.hash = '#error'</script>
+    <%end%>
+  <% end %>
   <h3>Your answer</h3>
-  <div class="panel">
-    enter answer in form here
+  <div id="error" class="panel">
+    <%= render "layouts/errors", :object => @answer %>
+    <%= render "answers/form"%>
   </div>
 </div>
 
