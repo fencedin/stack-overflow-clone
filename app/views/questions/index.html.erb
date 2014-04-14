@@ -1,0 +1,14 @@
+<h1>Home</h1>
+<div class="panel"><h5>User has_many :questions</h5></div>
+<div class="questions">
+  <div class="question button expand">
+      <h4>new question</h4>
+  </div>
+  <hr>
+  <%= @questions.each do |question|%>
+    <div class="question button expand">
+      <p><%= question.title %></p>
+    </div>
+    <hr>
+  <% end %>
+</div>

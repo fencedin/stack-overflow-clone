@@ -12,6 +12,26 @@
   </head>
 
   <body>
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="/">Stack Overflow Clone</a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#">Carrot</a></li>
+      </ul>
+
+      <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <% if user_signed_in? %>
+            <li><a href="/users/sign_out" data-method="delete">Logout</a></li>
+          <% else %>
+            <li><a href="/users/sign_in">Login</a></li>
+            <li><a href="/users/sign_up">Sign up</a></li>
+          <% end %>
+        </ul>
+      </section>
+    </nav>
     <div class="container">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
