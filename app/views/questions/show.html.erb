@@ -3,7 +3,14 @@
     <h1><%= @question.title %></h1>
     <p><%= @question.details %></p>
   </div>
-  <h3><%= @question.answers.length %> Answers</h3>
+  <h3>
+    <% if @answer.solution != "" %>
+      <%= @question.answers.length%>
+    <% else %>
+      <%= @question.answers.length-1%>
+    <% end%>
+    Answers
+  </h3>
   <% @question.answers.each do |answer|%>
     <% if answer.solution != ""%>
       <div class="panel">
