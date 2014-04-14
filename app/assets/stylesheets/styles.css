@@ -1,6 +1,6 @@
 .container {
   margin: 0 25px;
 }
-.question {
-  padding: 0;
+.hidden {
+  display: none;
 }

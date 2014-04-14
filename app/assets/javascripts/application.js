@@ -17,3 +17,8 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+$(".show").click(function(){
+  $(".hidden").show();
+  $(".show").hide();
+});

@@ -1,9 +1,22 @@
-<h1>Home</h1>
+<h1>Welcome to Stack Overflow Clone</h1>
 <div class="panel"><h5>User has_many :questions</h5></div>
 <div class="questions">
-  <div class="question button expand">
-      <h4>new question</h4>
-  </div>
+
+      <% if user_signed_in? %>
+        <%= render 'layouts/errors', :object => @question %>
+        <h4 class="question button expand show">Add New Question</h4>
+        <div class="hidden">
+          <%= form_for @question do |f| %>
+            <%=f.text_field :title, :placeholder => "Question" %>
+            <%=f.text_area :details,rows: "8", :placeholder => "The meat and potatoes..." %>
+            <%=f.submit %>
+          <% end %>
+        </div>
+
+      <% else %>
+        <h4><%= link_to "login to post a new question", new_user_registration_path, class: "question button expand"%></h4>
+      <% end %>
+
   <hr>
   <%= @questions.each do |question|%>
     <div class="question button expand">
