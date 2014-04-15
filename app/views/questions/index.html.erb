@@ -7,7 +7,7 @@
       <div class="hidden">
         <%= form_for @question do |f| %>
           <%=f.text_field :title, :placeholder => "Question" %>
-          <%=f.text_area :details,rows: "8", :placeholder => "The meat and potatoes..." %>
+          <%=f.text_area :details, rows: "8", :placeholder => "The meat and potatoes..." %>
           <%=f.submit %>
         <% end %>
       </div>
